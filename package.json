@@ -1,6 +1,6 @@
 {
   "name": "tracker-blocking",
-  "version": "1.1.0",
+  "version": "1.0.2",
   "description": "This is a list of tracker blocking rules used in the Opacity browser.",
   "main": "index.js",
   "private": true,

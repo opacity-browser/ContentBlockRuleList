@@ -9,4 +9,4 @@ For more details, see the LICENSE file.
 
 ## Version
 
-2.0.0
+1.0.2

@@ -15,3 +15,10 @@ d8.sina.com.cn
 sbeacon.sina.com.cn
 cre.mix.sina.com.cn
 interest.mix.sina.com.cn
+adballoon.afreecatv.com
+analysis.afreecatv.com
+collector1.afreecatv.com
+deapi.afreecatv.com
+delog.afreecatv.com
+eventapi.afreecatv.com
+reqde.afreecatv.com
