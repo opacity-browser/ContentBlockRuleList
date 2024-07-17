@@ -1,11 +1,11 @@
-# Opacity Tracker Blocking
+# Opacity Browser`s Tracker Blocking
 
-This is a list of tracker blocking rules used in the Opacity browser.  
-Domain lists provided by [DNS Blocklists](https://github.com/hagezi/dns-blocklists) are used as rules for WebKit's WKContentRuleListStore.
+This is a list of tracker blocking rules used in the Opacity Browser.
+Opacity Browser primarily uses the ['tracker-blocklists'](https://github.com/duckduckgo/tracker-blocklists) provided by DuckDuckGo, and additionally utilizes the rules from this repository.
 
 ## License
 
-This project is licensed under the terms of the GNU General Public License v3.0. See the [LICENSE](./LICENSE) file for details.
+For more details, see the LICENSE file.
 
 ## Version
 

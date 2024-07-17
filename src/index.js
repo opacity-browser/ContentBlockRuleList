@@ -13,15 +13,14 @@ class BlockingRuls {
   }
 }
 
-readFile("src/domains/light-onlydomains.txt", "utf8", (err, data) => {
+readFile("src/domains.txt", "utf8", (err, data) => {
   if (err) {
     console.error(err)
     return
   }
 
   const lines = data.split("\n")
-  const filteredLines = lines.filter((line) => !line.trim().startsWith("#"))
-  const ruls = filteredLines.map((domain) => new BlockingRuls(domain))
+  const ruls = lines.map((domain) => new BlockingRuls(domain))
   const jsonData = JSON.stringify(ruls)
 
   writeFile("dist/blockingRules.json", jsonData, (err) => {

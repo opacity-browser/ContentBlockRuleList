@@ -1,0 +1,17 @@
+lcs.naver.com
+veta.naver.com
+shopsquare.naver.com
+ad.daum.net
+cyad.nate.com
+cyad1.nate.com
+ad.search.nate.com
+stat.nate.com
+statclick.nate.com
+statetc.nate.com
+ad.mail.ru
+rs.mail.ru
+d3.sina.com.cn
+d8.sina.com.cn
+sbeacon.sina.com.cn
+cre.mix.sina.com.cn
+interest.mix.sina.com.cn
