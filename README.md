@@ -1,6 +1,6 @@
 # Opacity Browser`s Tracker Blocking
 
-This is a list of tracker blocking rules used in the Opacity Browser.
+This is a list of tracker blocking rules used in the Opacity Browser.  
 Opacity Browser primarily uses the ['tracker-blocklists'](https://github.com/duckduckgo/tracker-blocklists) provided by DuckDuckGo, and additionally utilizes the rules from this repository.
 
 ## License
