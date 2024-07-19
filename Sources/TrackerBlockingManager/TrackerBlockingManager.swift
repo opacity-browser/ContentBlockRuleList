@@ -2,7 +2,7 @@ import WebKit
 import TrackerRadarKit
 import Foundation
 
-public class ContentBlockingManager {
+public class TrackerBlockingManager {
   public init() {}
   
   public func updateBlockingRules(_ webView: WKWebView, isTrackerBlocking: Bool) {
