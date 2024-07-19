@@ -1,9 +1,8 @@
+import Foundation
 import WebKit
 import TrackerRadarKit
-import Foundation
 
-public class TrackerBlockingManager {
-  public init() {}
+public struct TrackerBlockingManager {
   
   public func updateBlockingRules(_ webView: WKWebView, isTrackerBlocking: Bool) {
     if isTrackerBlocking {
