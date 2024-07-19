@@ -1,7 +1,7 @@
 import XCTest
-@testable import TrackerBlockingManager
+@testable import BlockRuleList
 
-final class TrackerBlockingManagerTests: XCTestCase {
+final class BlockRuleListTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest

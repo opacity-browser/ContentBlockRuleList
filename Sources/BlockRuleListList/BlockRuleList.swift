@@ -2,67 +2,73 @@ import Foundation
 import WebKit
 import TrackerRadarKit
 
-public struct TrackerBlockingManager {
+public struct BlockRuleList {
   
-  public func updateBlockingRules(_ webView: WKWebView, isTrackerBlocking: Bool) {
-    if isTrackerBlocking {
-      getCacheContentBlockingRules(webView)
-      getCacheOtherContentBlockingRules(webView)
+  let webView: WKWebView
+  
+  public init(webView: WKWebView) {
+    self.webView = webView
+  }
+  
+  public func updateRules(isBlocking: Bool) {
+    if isBlocking {
+      addContentBlockingRules()
+      addOtherContentBlockingRules()
     } else {
-      webView.configuration.userContentController.removeAllContentRuleLists()
+      self.webView.configuration.userContentController.removeAllContentRuleLists()
     }
   }
   
-  private func getCacheOtherContentBlockingRules(_ webView: WKWebView) {
-    WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: "OtherContentBlockingRules") { result, error in
+  private func addOtherContentBlockingRules() {
+    WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: "OtherContentBlockRules") { result, error in
       if let error = error {
-        print("Error OtherContentBlockingRules lookUpContentRuleList : \(error)")
+        print("Error OtherContentBlockRules lookUpContentRuleList : \(error)")
         return
       }
       
       if let result = result {
-        webView.configuration.userContentController.add(result)
+        self.webView.configuration.userContentController.add(result)
         print("Add other tracker blocking - cache")
       } else {
-        self.addOtherBlockingRules(webView)
+        self.addOtherBlockingRules()
       }
     }
   }
   
-  private func addOtherBlockingRules(_ webView: WKWebView) {
+  private func addOtherBlockingRules() {
     if let rulePath = Bundle.main.path(forResource: "blockingRules", ofType: "json"),
        let ruleString = try? String(contentsOfFile: rulePath) {
-      WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "OtherContentBlockingRules", encodedContentRuleList: ruleString) { result, error in
+      WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "OtherContentBlockRules", encodedContentRuleList: ruleString) { result, error in
         if let error = error {
           print("Error compiling other content rule list: \(error)")
           return
         }
         
         if let result = result {
-          webView.configuration.userContentController.add(result)
+          self.webView.configuration.userContentController.add(result)
           print("Add other tracker blocking")
         }
       }
     }
   }
   
-  private func getCacheContentBlockingRules(_ webView: WKWebView) {
-    WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: "ContentBlockingRules") { result, error in
+  private func addContentBlockingRules() {
+    WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: "ContentBlockRules") { result, error in
       if let error = error {
-        print("Error ContentBlockingRules lookUpContentRuleList : \(error)")
+        print("Error ContentBlockRules lookUpContentRuleList : \(error)")
         return
       }
       
       if let result = result {
-        webView.configuration.userContentController.add(result)
+        self.webView.configuration.userContentController.add(result)
         print("Add tracker blocking - cache")
       } else {
-        self.addContentBlockingRules(webView)
+        self.addBlockingRules()
       }
     }
   }
   
-  private func addContentBlockingRules(_ webView: WKWebView) {
+  private func addBlockingRules() {
     if let rulePath = Bundle.main.path(forResource: "duckduckgoTrackerBlocklists", ofType: "json") {
       do {
         let ruleData = try Data(contentsOf: URL(fileURLWithPath: rulePath))
@@ -72,14 +78,14 @@ public struct TrackerBlockingManager {
         let data = try JSONEncoder().encode(rules)
         let ruleList = String(data: data, encoding: .utf8)!
         
-        WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "ContentBlockingRules", encodedContentRuleList: ruleList) { result, error in
+        WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "ContentBlockRules", encodedContentRuleList: ruleList) { result, error in
           if let error = error {
             print("Error compiling content rule list: \(error)")
             return
           }
           
           if let result = result {
-            webView.configuration.userContentController.add(result)
+            self.webView.configuration.userContentController.add(result)
             print("Add tracker blocking")
           }
         }
