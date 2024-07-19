@@ -21,15 +21,13 @@ public struct BlockRuleList {
   
   private func addOtherContentBlockingRules() {
     WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: "OtherContentBlockRules") { result, error in
-      if let error = error {
-        print("Error OtherContentBlockRules lookUpContentRuleList : \(error)")
-        return
-      }
-      
       if let result = result {
         self.webView.configuration.userContentController.add(result)
         print("Add other tracker blocking - cache")
       } else {
+        if let error = error {
+          print("Error OtherContentBlockRules lookUpContentRuleList : \(error)")
+        }
         self.addOtherBlockingRules()
       }
     }
@@ -43,7 +41,6 @@ public struct BlockRuleList {
           print("Error compiling other content rule list: \(error)")
           return
         }
-        
         if let result = result {
           self.webView.configuration.userContentController.add(result)
           print("Add other tracker blocking")
@@ -54,15 +51,13 @@ public struct BlockRuleList {
   
   private func addContentBlockingRules() {
     WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: "ContentBlockRules") { result, error in
-      if let error = error {
-        print("Error ContentBlockRules lookUpContentRuleList : \(error)")
-        return
-      }
-      
       if let result = result {
         self.webView.configuration.userContentController.add(result)
         print("Add tracker blocking - cache")
       } else {
+        if let error = error {
+          print("Error ContentBlockRules lookUpContentRuleList : \(error)")
+        }
         self.addBlockingRules()
       }
     }
@@ -83,7 +78,6 @@ public struct BlockRuleList {
             print("Error compiling content rule list: \(error)")
             return
           }
-          
           if let result = result {
             self.webView.configuration.userContentController.add(result)
             print("Add tracker blocking")
