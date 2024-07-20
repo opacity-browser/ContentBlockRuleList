@@ -18,7 +18,11 @@ let package = Package(
   targets: [
     .target(
       name: "BlockRuleList",
-      dependencies: ["TrackerRadarKit"]),
+      dependencies: ["TrackerRadarKit"],
+      resources: [
+        .process("Resources/blockingRules.json"),
+        .process("Resources/duckduckgoTrackerBlocklists.json")
+      ]),
     .testTarget(
       name: "BlockRuleListTests",
       dependencies: ["BlockRuleList"]),

@@ -25,22 +25,16 @@ public struct BlockRuleList {
         self.webView.configuration.userContentController.add(result)
         print("Add other tracker blocking - cache")
       } else {
-        if let error = error {
-          print("Error OtherContentBlockRules lookUpContentRuleList : \(error)")
-        }
+        print("result = nil OtherContentBlockRules lookUpContentRuleList : \(error)")
         self.addOtherBlockingRules()
       }
     }
   }
   
   private func addOtherBlockingRules() {
-    if let rulePath = Bundle.main.path(forResource: "blockingRules", ofType: "json"),
+    if let rulePath = Bundle.module.path(forResource: "blockingRules", ofType: "json"),
        let ruleString = try? String(contentsOfFile: rulePath) {
       WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "OtherContentBlockRules", encodedContentRuleList: ruleString) { result, error in
-        if let error = error {
-          print("Error compiling other content rule list: \(error)")
-          return
-        }
         if let result = result {
           self.webView.configuration.userContentController.add(result)
           print("Add other tracker blocking")
@@ -55,16 +49,14 @@ public struct BlockRuleList {
         self.webView.configuration.userContentController.add(result)
         print("Add tracker blocking - cache")
       } else {
-        if let error = error {
-          print("Error ContentBlockRules lookUpContentRuleList : \(error)")
-        }
+        print("result = nil ContentBlockRules lookUpContentRuleList : \(error)")
         self.addBlockingRules()
       }
     }
   }
   
   private func addBlockingRules() {
-    if let rulePath = Bundle.main.path(forResource: "duckduckgoTrackerBlocklists", ofType: "json") {
+    if let rulePath = Bundle.module.path(forResource: "duckduckgoTrackerBlocklists", ofType: "json") {
       do {
         let ruleData = try Data(contentsOf: URL(fileURLWithPath: rulePath))
         let tds = try JSONDecoder().decode(TrackerData.self, from: ruleData)
@@ -74,10 +66,6 @@ public struct BlockRuleList {
         let ruleList = String(data: data, encoding: .utf8)!
         
         WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "ContentBlockRules", encodedContentRuleList: ruleList) { result, error in
-          if let error = error {
-            print("Error compiling content rule list: \(error)")
-            return
-          }
           if let result = result {
             self.webView.configuration.userContentController.add(result)
             print("Add tracker blocking")
