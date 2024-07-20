@@ -1,7 +1,7 @@
 import XCTest
 @testable import BlockRuleList
 
-final class BlockRuleListTests: XCTestCase {
+final class ContentBlockRuleListTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest

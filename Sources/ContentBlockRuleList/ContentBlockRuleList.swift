@@ -2,7 +2,7 @@ import Foundation
 import WebKit
 import TrackerRadarKit
 
-public struct BlockRuleList {
+public struct ContentBlockRuleList {
   
   let webView: WKWebView
   
@@ -25,7 +25,7 @@ public struct BlockRuleList {
         self.webView.configuration.userContentController.add(result)
         print("Add other tracker blocking - cache")
       } else {
-        print("result = nil OtherContentBlockRules lookUpContentRuleList : \(error)")
+        print("result = nil OtherContentBlockRules lookUpContentRuleList")
         self.addOtherBlockingRules()
       }
     }
@@ -49,7 +49,7 @@ public struct BlockRuleList {
         self.webView.configuration.userContentController.add(result)
         print("Add tracker blocking - cache")
       } else {
-        print("result = nil ContentBlockRules lookUpContentRuleList : \(error)")
+        print("result = nil ContentBlockRules lookUpContentRuleList")
         self.addBlockingRules()
       }
     }

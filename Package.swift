@@ -3,28 +3,28 @@
 import PackageDescription
 
 let package = Package(
-  name: "BlockRuleList",
+  name: "ContentBlockRuleList",
   platforms: [
     .macOS(.v14)
   ],
   products: [
     .library(
-      name: "BlockRuleList",
-      targets: ["BlockRuleList"]),
+      name: "ContentBlockRuleList",
+      targets: ["ContentBlockRuleList"]),
   ],
   dependencies: [
     .package(url: "https://github.com/duckduckgo/TrackerRadarKit.git", from: "2.1.2")
   ],
   targets: [
     .target(
-      name: "BlockRuleList",
+      name: "ContentBlockRuleList",
       dependencies: ["TrackerRadarKit"],
       resources: [
         .process("Resources/blockingRules.json"),
         .process("Resources/duckduckgoTrackerBlocklists.json")
       ]),
     .testTarget(
-      name: "BlockRuleListTests",
-      dependencies: ["BlockRuleList"]),
+      name: "ContentBlockRuleListTests",
+      dependencies: ["ContentBlockRuleList"]),
   ]
 )
