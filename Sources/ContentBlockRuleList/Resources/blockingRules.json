@@ -69,12 +69,16 @@
   },
   {
     "trigger": {
-      "url-filter": "^https://vod-player00[1-3]\\.sooplive\\.co\\.kr/.*\\.ts"
+      "url-filter": ".*\\.ts",
+      "if-resource-domain": [
+        "vod-player001.sooplive.co.kr",
+        "vod-player002.sooplive.co.kr",
+        "vod-player003.sooplive.co.kr"
+      ]
     },
     "action": {
       "type": "block"
     }
-  },
   {
     "trigger": { "url-filter": ".*main-player.sooplive.co.kr" },
     "action": { "type": "block" }
