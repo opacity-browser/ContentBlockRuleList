@@ -13,23 +13,23 @@ public struct ContentBlockRuleList {
   public func updateRules(isBlocking: Bool) {
     if isBlocking {
       addContentBlockingRules()
-      addOtherContentBlockingRules()
+      addOtherBlockingRules()
     } else {
       self.webView.configuration.userContentController.removeAllContentRuleLists()
     }
   }
   
-  private func addOtherContentBlockingRules() {
-    WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: "OtherContentBlockRules") { result, error in
+//  private func addOtherContentBlockingRules() {
+//    WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: "OtherContentBlockRules") { result, error in
 //      if let result = result {
 //        self.webView.configuration.userContentController.add(result)
 //        print("Add other tracker blocking - cache")
 //      } else {
 //        print("result = nil OtherContentBlockRules lookUpContentRuleList")
-        self.addOtherBlockingRules()
+//        self.addOtherBlockingRules()
 //      }
-    }
-  }
+//    }
+//  }
   
   private func addOtherBlockingRules() {
     if let rulePath = Bundle.module.path(forResource: "blockingRules", ofType: "json"),

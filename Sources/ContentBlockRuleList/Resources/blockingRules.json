@@ -80,15 +80,31 @@
     "action": { "type": "block" }
   },
   {
-    "trigger": { "url-filter": ".*main-player.sooplive.co.kr" },
-    "action": { "type": "block" }
-  },
-  {
-    "trigger": { "url-filter": ".*img-display.sooplive.co.kr" },
-    "action": { "type": "block" }
-  },
-  {
     "trigger": { "url-filter": ".*adballoon.sooplive.co.kr" },
+    "action": { "type": "block" }
+  },
+  {
+    "trigger": { "url-filter": ".*analysis.sooplive.co.kr" },
+    "action": { "type": "block" }
+  },
+  {
+    "trigger": { "url-filter": ".*collector1.sooplive.co.kr" },
+    "action": { "type": "block" }
+  },
+  {
+    "trigger": { "url-filter": ".*deapi.sooplive.co.kr" },
+    "action": { "type": "block" }
+  },
+  {
+    "trigger": { "url-filter": ".*delog.sooplive.co.kr" },
+    "action": { "type": "block" }
+  },
+  {
+    "trigger": { "url-filter": ".*eventapi.sooplive.co.kr" },
+    "action": { "type": "block" }
+  },
+  {
+    "trigger": { "url-filter": ".*reqde.sooplive.co.kr" },
     "action": { "type": "block" }
   }
 ]
