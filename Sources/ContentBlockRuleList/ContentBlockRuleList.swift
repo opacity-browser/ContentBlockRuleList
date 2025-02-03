@@ -21,13 +21,13 @@ public struct ContentBlockRuleList {
   
   private func addOtherContentBlockingRules() {
     WKContentRuleListStore.default().lookUpContentRuleList(forIdentifier: "OtherContentBlockRules") { result, error in
-      if let result = result {
-        self.webView.configuration.userContentController.add(result)
-        print("Add other tracker blocking - cache")
-      } else {
-        print("result = nil OtherContentBlockRules lookUpContentRuleList")
+//      if let result = result {
+//        self.webView.configuration.userContentController.add(result)
+//        print("Add other tracker blocking - cache")
+//      } else {
+//        print("result = nil OtherContentBlockRules lookUpContentRuleList")
         self.addOtherBlockingRules()
-      }
+//      }
     }
   }
   

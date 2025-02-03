@@ -68,17 +68,17 @@
     "action": { "type": "block" }
   },
   {
-    "trigger": {
-      "url-filter": ".*\\.ts",
-      "if-resource-domain": [
-        "vod-player001.sooplive.co.kr",
-        "vod-player002.sooplive.co.kr",
-        "vod-player003.sooplive.co.kr"
-      ]
-    },
-    "action": {
-      "type": "block"
-    }
+    "trigger": { "url-filter": ".*vod-player001.sooplive.co.kr" },
+    "action": { "type": "block" }
+  },
+  {
+    "trigger": { "url-filter": ".*vod-player002.sooplive.co.kr" },
+    "action": { "type": "block" }
+  },
+  {
+    "trigger": { "url-filter": ".*vod-player003.sooplive.co.kr" },
+    "action": { "type": "block" }
+  },
   {
     "trigger": { "url-filter": ".*main-player.sooplive.co.kr" },
     "action": { "type": "block" }
